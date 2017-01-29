@@ -23,5 +23,37 @@ configure_args=(
 make -j$CPU_COUNT
 make install
 make check
-rm -rf $PREFIX/share/doc/${PKG_NAME#xorg-}
-rm -f $PREFIX/lib/libxcb*.a $PREFIX/lib/libxcb*.la
+
+rm -rf $PREFIX/share/man $PREFIX/share/doc/${PKG_NAME#xorg-}
+
+xcb_libs="
+xcb
+xcb-composite
+xcb-damage
+xcb-dpms
+xcb-dri2
+xcb-dri3
+xcb-glx
+xcb-present
+xcb-randr
+xcb-record
+xcb-res
+xcb-screensaver
+xcb-shape
+xcb-shm
+xcb-sync
+xcb-xf86dri
+xcb-xfixes
+xcb-xinerama
+xcb-xkb
+xcb-xtest
+xcb-xv
+xcb-xvmc
+"
+
+# Prefer dynamic libraries to static, and dump libtool helper files
+for lib_ident in $xcb_libs ; do
+    if [ -e $PREFIX/lib/lib${lib_ident}$SHLIB_EXT ] ; then
+        rm -f $PREFIX/lib/lib${lib_ident}.a $PREFIX/lib/lib${lib_ident}.la
+    fi
+done

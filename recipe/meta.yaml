@@ -20,7 +20,7 @@ source:
 # versions to cover the different Visual Studio versions.
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
   features:
     - vc9  # [win and py27]
