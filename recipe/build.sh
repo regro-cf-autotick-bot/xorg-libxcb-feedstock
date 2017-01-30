@@ -53,7 +53,8 @@ xcb-xvmc
 
 # Prefer dynamic libraries to static, and dump libtool helper files
 for lib_ident in $xcb_libs ; do
+    rm -f $PREFIX/lib/lib${lib_ident}.la
     if [ -e $PREFIX/lib/lib${lib_ident}$SHLIB_EXT ] ; then
-        rm -f $PREFIX/lib/lib${lib_ident}.a $PREFIX/lib/lib${lib_ident}.la
+        rm -f $PREFIX/lib/lib${lib_ident}.a
     fi
 done
