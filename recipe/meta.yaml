@@ -3,6 +3,7 @@
 {% set name = "xorg-" ~ xorg_name %}
 {% set version = "1.12" %}
 {% set sha256 = "4adfb1b7c67e99bc9c2ccb110b2f175686576d2f792c8a71b9c8b19014057b5b" %}
+{% set am_version = "1.15" %} # keep synchronized with build.sh
 
 package:
   name: {{ name|lower }}
@@ -20,7 +21,7 @@ source:
 # versions to cover the different Visual Studio versions.
 
 build:
-  number: 2
+  number: 3
   detect_binary_files_with_prefix: true
   features:
     - vc9  # [win and py27]
@@ -29,6 +30,9 @@ build:
 
 requirements:
   build:
+    - m2-autoconf  # [win]
+    - m2-automake{{ am_version }}  # [win]
+    - m2-libtool  # [win]
     - m2w64-pkg-config  # [win]
     - m2w64-toolchain  # [win]
     - pkg-config  # [not win]
