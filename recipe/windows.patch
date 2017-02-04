@@ -18,3 +18,32 @@
                  AC_CHECK_LIB([ws2_32],[main])
                  ;;
          *)
+@@ -256,16 +256,14 @@
+ 
+ AM_CONDITIONAL(XCB_SERVERSIDE_SUPPORT, test "x$XCB_SERVERSIDE_SUPPORT" = "xyes")
+ 
+-AC_CONFIG_FILES([
+-Makefile
++AC_CONFIG_FILES([Makefile
+ doc/Makefile
+ man/Makefile
+ src/Makefile
+ tests/Makefile
+ ])
+ 
+-AC_CONFIG_FILES([
+-xcb.pc
++AC_CONFIG_FILES([xcb.pc
+ xcb-composite.pc
+ xcb-damage.pc
+ xcb-dpms.pc
+@@ -294,8 +292,7 @@
+ xcb-xvmc.pc
+ ])
+ 
+-AC_CONFIG_FILES([
+-doc/xcb.doxygen
++AC_CONFIG_FILES([doc/xcb.doxygen
+ ])
+ 
+ AC_OUTPUT
