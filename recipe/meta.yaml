@@ -1,3 +1,6 @@
+# !!!! This package (xorg-libxcb) has been deprecated in favor of
+# `libxcb` for compatibility with Anaconda `defaults` !!!!
+
 {% set xorg_name = "libxcb" %}
 {% set xorg_category = "xcb" %}
 {% set name = "xorg-" ~ xorg_name %}
@@ -21,6 +24,7 @@ source:
 # versions to cover the different Visual Studio versions.
 
 build:
+  skip: true # !!!!!!!
   number: 3
   detect_binary_files_with_prefix: true
   features:
