@@ -4,8 +4,8 @@
 {% set xorg_name = "libxcb" %}
 {% set xorg_category = "xcb" %}
 {% set name = "xorg-" ~ xorg_name %}
-{% set version = "1.12" %}
-{% set sha256 = "4adfb1b7c67e99bc9c2ccb110b2f175686576d2f792c8a71b9c8b19014057b5b" %}
+{% set version = "1.13" %}
+{% set sha256 = "188c8752193c50ff2dbe89db4554c63df2e26a2e47b0fa415a70918b5b851daa" %}
 {% set am_version = "1.15" %} # keep synchronized with build.sh
 
 package:
@@ -25,7 +25,7 @@ source:
 
 build:
   skip: true # !!!!!!!
-  number: 3
+  number: 0
   detect_binary_files_with_prefix: true
   features:
     - vc9  # [win and py27]
